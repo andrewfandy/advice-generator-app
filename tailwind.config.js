@@ -5,6 +5,8 @@ export default {
     extend: {
       fontSize: {
         "size-base": 28,
+        "size-base-sm": 24,
+        "size-base-xs": 18,
       },
       fontWeight: {
         "weight-base": 800,

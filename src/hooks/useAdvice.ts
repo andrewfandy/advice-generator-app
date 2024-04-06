@@ -25,7 +25,7 @@ function useAdvice() {
                 setAdvice(data)
             })
             .catch(err => {
-                if (signal.aborted) {
+                if (!signal.aborted) {
                     setError(err)
                     console.log(err)
                 }

@@ -25,8 +25,11 @@ function useAdvice() {
                 setAdvice(data)
             })
             .catch(err => {
-                setError(err)
-                console.log(err)
+                if (signal.aborted) {
+                    setError(err)
+                    console.log(err)
+                }
+
             })
         console.log(advice)
         return () => { controller.abort() }

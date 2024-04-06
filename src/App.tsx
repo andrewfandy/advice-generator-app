@@ -22,15 +22,10 @@ export default function App() {
   const { advice, error, refetch } = useAdvice();
 
 
-  const handleOnClick: MouseEventHandler<HTMLElement> = async (event) => {
+  const handleOnClick: MouseEventHandler<HTMLElement> = (event) => {
     event.preventDefault();
-    if (true) {
-      try {
-        await refetch()
-      } catch (err) {
-        console.log(error?.message)
-      }
-    }
+    refetch()
+
     return event
   };
 

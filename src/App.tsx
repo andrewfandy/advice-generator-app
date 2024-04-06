@@ -1,23 +1,36 @@
 import iconDice from './assets/icon-dice.svg'
 import dividerMobile from './assets/pattern-divider-mobile.svg'
 import dividerDesktop from './assets/pattern-divider-desktop.svg'
-import AdviceHooks from "./hooks/AdviceHooks"
-import {MouseEventHandler } from 'react'
+import { useAdvice } from "./hooks/useAdvice"
+import { MouseEventHandler, useState } from 'react'
 
-function Error() {
+
+type ErrorProps = {
+  msg: string;
+}
+const Error: React.FC<ErrorProps> = ({ msg }) => {
   return (
     <>
-      <h1>ERROR!!!</h1>
+      <h1 className='text-3xl'>ERROR!!</h1>
+      <p>Message: {msg}</p>
     </>
   )
-}
+};
+
 export default function App() {
-  const {advice, error} = AdviceHooks();
 
-  const handleOnClick: MouseEventHandler<HTMLElement> = (event) =>  {
+  const { advice, error, refetch } = useAdvice();
+
+
+  const handleOnClick: MouseEventHandler<HTMLElement> = async (event) => {
     event.preventDefault();
-    location.reload();
-
+    if (true) {
+      try {
+        await refetch()
+      } catch (err) {
+        console.log(error?.message)
+      }
+    }
     return event
   };
 
@@ -26,14 +39,12 @@ export default function App() {
       <main className='flex flex-col justify-center items-center h-screen w-screen font-family-base font-weight-base'>
         <div className="p-2 flex flex-col justify-center items-center bg-opacity-30 bg-neutral-gray-blue rounded-md max-w-md m-3 h-1/2 relative">
           <p className="tracking-base-widest text-xs m-3 text-primary-neon">
-                  ADVICE #{advice?.slip.id}
+            ADVICE #{advice?.slip.id}
           </p>
-          {/* the problem is in here, if take out the w-300px it #next */}
-          <div className="w-full h-full grow flex flex-col p-5 justify-center items-center text-center"> 
-            {error && <Error/>}
+          <div className="w-full h-full grow flex flex-col p-5 justify-center items-center text-center">
+            {error && <Error msg={error.message} />}
             {
               !advice ?
-              // the parent would fit into this component
                 <h1 className=" opacity-50 text-size-base-sm underline">Loading</h1>
                 :
                 <>

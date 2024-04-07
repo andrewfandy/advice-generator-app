@@ -1,7 +1,7 @@
 import iconDice from '../assets/icon-dice.svg'
 import dividerMobile from '../assets/pattern-divider-mobile.svg'
 import dividerDesktop from '../assets/pattern-divider-desktop.svg'
-import { MouseEventHandler, useTransition } from 'react'
+import { MouseEventHandler } from 'react'
 import { useAdvice } from '../hooks/useAdvice'
 import { Loading } from './Loading'
 

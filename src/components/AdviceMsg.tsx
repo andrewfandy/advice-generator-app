@@ -42,7 +42,7 @@ export default function AdviceMsg() {
                                 <Error msg={error.message} />
                                 :
                                 <>
-                                    <p className="opacity-50 text-sm md:text-size-base-sm">"{advice?.slip.advice}"</p>
+                                    <p className="opacity-50 text-md md:text-xl">"{advice?.slip.advice}"</p>
                                 </>
                             }
                         </div>

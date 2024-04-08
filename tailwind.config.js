@@ -7,6 +7,7 @@ export default {
         "size-base": 28,
         "size-base-sm": 24,
         "size-base-xs": 18,
+        "size-base-xxs": 16,
       },
       fontWeight: {
         "weight-base": 800,

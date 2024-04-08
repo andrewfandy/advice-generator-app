@@ -33,7 +33,7 @@ export default function AdviceMsg() {
                 !advice ?
                     <Loading />
                     :
-                    <>
+                    <div className="p-2 mt-auto flex flex-col justify-center items-center bg-opacity-30 bg-neutral-gray-blue rounded-md w-3/4 md:w-[480px] h-1/2 relative">
                         <p className="tracking-base-widest text-xs m-3 text-primary-neon">
                             ADVICE #{advice?.slip.id}
                         </p>
@@ -42,7 +42,7 @@ export default function AdviceMsg() {
                                 <Error msg={error.message} />
                                 :
                                 <>
-                                    <p className="opacity-50 text-size-base-sm">"{advice?.slip.advice}"</p>
+                                    <p className="opacity-50 text-sm md:text-size-base-sm">"{advice?.slip.advice}"</p>
                                 </>
                             }
                         </div>
@@ -53,7 +53,7 @@ export default function AdviceMsg() {
                         <button onClick={handleOnClick} className='rounded-full p-3 bg-primary-neon hover:shadow-base absolute -bottom-6'>
                             <img src={iconDice} alt="Pattern Divider Desktop" />
                         </button>
-                    </>
+                    </div>
             }
         </>
     )
